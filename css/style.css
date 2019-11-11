@@ -1,0 +1,27 @@
+a {
+	text-decoration: none;
+}
+
+.pilih-benda {
+	width: 5rem;
+	margin-right: 4px;
+	font-size: 10pt;
+	color: #000;
+}
+
+a.pilih-benda:hover {
+	text-decoration: none;
+	color: #000;
+}
+
+.detail-benda, .detail-benda input {
+	font-size: 10pt;
+}
+
+div.nav {
+	font-size: 10pt;
+}
+
+.hasil {
+	font-size: 10pt;
+}
