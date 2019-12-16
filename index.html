@@ -7,7 +7,6 @@
 	<link rel="stylesheet" href="css/style.css">
 	<!-- <link rel="stylesheet" href="css/fontawesome.min.css"> -->
 	<link rel="stylesheet" href="css/Chart.min.css">
-	<script src="js/Chart.min.js"></script>
 </head>
 <body>
 	<div class="container-fluid">
@@ -23,23 +22,24 @@
 					</div>
 					<div class="card-body">
 						<div class="row">
+							<!-- <input type="checkbox" name="benda_1" class="form-control"> -->
 							Pilih Benda
 						</div>
 
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="row">
-									<a href="" class="card text-center pilih-benda">
-										<img src="img/kelereng.png" class="card-img-top" alt="">
-										<p class="card-text mb-2 mt-2">Kelereng</p>
+									<a href="javascript:void(0);" data-dencity="40" class="card text-center pilih-benda benda">
+										<img src="img/kelereng.png" id="img_benda1" class="card-img-top" alt="">
+										<p class="card-text mb-2 mt-2" id="nama_benda">Kelereng</p>
 									</a>
-									<a href="" class="card text-center pilih-benda" style="padding: 2px 2px 0;">
-										<img src="img/golf.png" class="card-img-top" alt="">
-										<p class="card-text mb-2 mt-2">Golf</p>
+									<a href="javascript:void(0);" data-dencity="30" class="card text-center pilih-benda benda" style="padding: 2px 2px 0;">
+										<img src="img/golf.png" id="img_benda2" class="card-img-top" alt="">
+										<p class="card-text mb-2 mt-2" id="nama_benda2">Golf</p>
 									</a>
-									<a href="" class="card text-center pilih-benda">
-										<img src="img/kelereng.png" class="card-img-top" alt="">
-										<p class="card-text mb-2 mt-2">Kelereng</p>
+									<a href="javascript:void(0);" data-dencity="50" class="card text-center pilih-benda benda">
+										<img src="img/kelereng.png" id="img_benda3" class="card-img-top" alt="">
+										<p class="card-text mb-2 mt-2" id="nama_benda3">Kelereng</p>
 									</a>
 								</div>
 							</div>
@@ -47,47 +47,59 @@
 							<div class="col-sm-6 detail-benda">
 								<div class="form-group">
 									<label for="">Kerapatan Benda</label>
-									<input type="text" class="form-control form-control-sm" placeholder="Input kerapatan benda">
+									<input type="text" id="kerapatan_benda" class="form-control form-control-sm" placeholder="Input kerapatan benda">
 								</div>
 								<div class="form-group">
 									<label for="">Diameter Benda</label>
-									<input type="text" class="form-control form-control-sm" placeholder="Input diameter benda">
+									<input type="range" data-target="#benda_jatuh" class="custom-range" placeholder="Input diameter benda">
 								</div>
 							</div>
 
 						</div>
 
 						<div class="row">
-							Pilih Cairan
-						</div>
+							<div class="col-md-6">
+								<div class="row">
+									Pilih Cairan
+								</div>
 
-						<div class="row">
-							<div class="col-4">
-								<div class="nav flex-column">
-								  <a class="nav-link" href="#">Minyak Tanah</a>
-								  <a class="nav-link" href="#">Minyak Goreng</a>
-								  <a class="nav-link" href="#">Oli</a>
-								  <a class="nav-link" href="#">Air</a>
-								  <div class="nav-link form-group">
-								  	<label for="">Kerapatan Cairan</label>
-								  	<input type="text" class="form-control form-control-sm" placeholder="Input kerapatan cairan">
-								  </div>
+								<div class="row">
+									<div class="nav flex-column">
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="customRadio1" name="kerapatan" data-dencity="50" class="custom-control-input">
+											<label class="custom-control-label" for="customRadio1">Air</label>
+										</div>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="customRadio2" name="kerapatan" data-dencity="80" class="custom-control-input">
+											<label class="custom-control-label" for="customRadio2">Oli</label>
+										</div>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="customRadio3" name="kerapatan" data-dencity="30" class="custom-control-input">
+											<label class="custom-control-label" for="customRadio3">Minyak Goreng</label>
+										</div>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="customRadio4" name="kerapatan" data-dencity="90" class="custom-control-input">
+											<label class="custom-control-label" for="customRadio4">Minyak Tanah</label>
+										</div>
+										 <div class="nav-link form-group">
+										  	<label for="">Kerapatan Cairan</label>
+										  	<input type="text" id="kerapatan_cairan" class="form-control form-control-sm" placeholder="Input kerapatan cairan" readonly>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<label for="">Viskositas</label>
+										<input type="text" class="form-control form-control-sm" placeholder="Input nilai viskositas">
+									</div>
 								</div>
 							</div>
 
-							<div class="col-sm-7 text-right">
-								<img src="img/tabung.png" width="200" alt="" style="position: relative;">
-								<div style="position: absolute; top: 30px; left: 60%;">
-									<img src="img/kelereng.png" width="50" alt="">
+							<div class="col-md-6 text-center">
+								<div style="position: absolute; width: 100%; margin-left: -17px; height: 140px; vertical-align: middle;">
+									<img src="img/kelereng.png" id="benda_jatuh" width="50" style="vertical-align: middle;" alt="">
 								</div>
-							</div>
-
-						</div>
-
-						<div class="row">
-							<div class="form-group">
-								<label for="">Viskositas</label>
-								<input type="text" class="form-control form-control-sm" placeholder="Input nilai viskositas">
+								<img src="img/tabung.png" width="200" height="350" alt="">
 							</div>
 						</div>
 
@@ -109,15 +121,15 @@
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="row">
-									<a href="" class="card text-center pilih-benda">
+									<a href="javascript:void(0);" data-dencity="40" class="card text-center pilih-benda benda2">
 										<img src="img/kelereng.png" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2">Kelereng</p>
 									</a>
-									<a href="" class="card text-center pilih-benda" style="padding: 2px 2px 0;">
+									<a href="javascript:void(0);" data-dencity="60" class="card text-center pilih-benda benda2" style="padding: 2px 2px 0;">
 										<img src="img/golf.png" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2">Golf</p>
 									</a>
-									<a href="" class="card text-center pilih-benda">
+									<a href="javascript:void(0);" data-dencity="50" class="card text-center pilih-benda benda2">
 										<img src="img/kelereng.png" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2">Kelereng</p>
 									</a>
@@ -127,47 +139,62 @@
 							<div class="col-sm-6 detail-benda">
 								<div class="form-group">
 									<label for="">Kerapatan Benda</label>
-									<input type="text" class="form-control form-control-sm" placeholder="Input kerapatan benda">
+									<input type="text" id="kerapatan_benda2" class="form-control form-control-sm" placeholder="Input kerapatan benda">
 								</div>
 								<div class="form-group">
 									<label for="">Diameter Benda</label>
-									<input type="text" class="form-control form-control-sm" placeholder="Input diameter benda">
+									<input type="range" data-target="#benda_jatuh2" class="custom-range" placeholder="Input diameter benda">
 								</div>
 							</div>
 
 						</div>
 
+						
 						<div class="row">
-							Pilih Cairan
-						</div>
+							<div class="col-md-6">
+								<div class="row">
+									Pilih Cairan
+								</div>
 
-						<div class="row">
-							<div class="col-4">
-								<div class="nav flex-column">
-								  <a class="nav-link" href="#">Minyak Tanah</a>
-								  <a class="nav-link" href="#">Minyak Goreng</a>
-								  <a class="nav-link" href="#">Oli</a>
-								  <a class="nav-link" href="#">Air</a>
-								  <div class="nav-link form-group">
-								  	<label for="">Kerapatan Cairan</label>
-								  	<input type="text" class="form-control form-control-sm" placeholder="Input kerapatan cairan">
-								  </div>
+								<div class="row">
+									<div class="nav flex-column">
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="custom2Radio1" name="kerapatan2" data-dencity="50" class="custom-control-input">
+											<label class="custom-control-label" for="custom2Radio1">Air</label>
+										</div>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="custom2Radio2" name="kerapatan2" data-dencity="80" class="custom-control-input">
+											<label class="custom-control-label" for="custom2Radio2">Oli</label>
+										</div>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="custom2Radio3" name="kerapatan2" data-dencity="30" class="custom-control-input">
+											<label class="custom-control-label" for="custom2Radio3">Minyak Goreng</label>
+										</div>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="custom2Radio4" name="kerapatan2" data-dencity="90" class="custom-control-input">
+											<label class="custom-control-label" for="custom2Radio4">Minyak Tanah</label>
+										</div>
+										 <div class="nav-link form-group">
+										  	<label for="">Kerapatan Cairan</label>
+										  	<input type="text" id="kerapatan_cairan2" class="form-control form-control-sm" placeholder="Input kerapatan cairan" readonly>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="form-group">
+										<label for="">Viskositas</label>
+										<input type="text" class="form-control form-control-sm" placeholder="Input nilai viskositas">
+									</div>
 								</div>
 							</div>
 
-							<div class="col-sm-7 text-right">
-								<img src="img/tabung.png" width="200" alt="" style="position: relative;">
-								<div style="position: absolute; top: 30px; left: 60%;">
-									<img src="img/kelereng.png" width="50" alt="">
+							<div class="col-md-6">
+								<div class="col-sm-7 text-right">
+									<img src="img/tabung.png" width="200" height="350" alt="" style="position: relative;">
+									<div style="position: absolute; top: 30px; left: 60%;">
+										<img src="img/kelereng.png" id="benda_jatuh2" width="50" alt="">
+									</div>
 								</div>
-							</div>
-
-						</div>
-
-						<div class="row">
-							<div class="form-group">
-								<label for="">Viskositas</label>
-								<input type="text" class="form-control form-control-sm" placeholder="Input nilai viskositas">
 							</div>
 						</div>
 
@@ -210,7 +237,9 @@
 		</div>
 		
 	</div>
-
+	
+	<script src="js/Chart.min.js"></script>
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
 	<script>
 		var ctx = document.getElementById('myChart').getContext('2d');
 		var myChart = new Chart(ctx, {
@@ -321,6 +350,69 @@
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
 	<script src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var img_size = 40;
+			$('input[type=range]').attr('min', 30);
+			$('input[type=range]').attr('max', 80);
+			$('input[type=range]').val(img_size);
+			$('#img_benda').attr('size', img_size);
+
+			$('.benda').click(function() {
+				var img_src = $(this).children('img').attr('src');
+				var dencity = $(this).data('dencity');
+				$('.benda').removeClass('border-primary');
+				$(this).addClass('border-primary');
+				$('#benda_jatuh').attr('src', img_src);
+				$('#kerapatan_benda').val(dencity);
+			});
+
+			$('.benda2').click(function() {
+				var img_src = $(this).children('img').attr('src');
+				var dencity = $(this).data('dencity');
+				$('.benda2').removeClass('border-primary');
+				$(this).addClass('border-primary');
+				$('#benda_jatuh2').attr('src', img_src);
+				$('#kerapatan_benda2').val(dencity);
+			});
+
+			$('input[type=range]').on('input', function() {
+				var img_target = $(this).data('target');
+				var size = $(this).val();
+				$(img_target).attr('width', size);
+				$(this).attr('title', size);
+				// $('#kerapatan_benda').val(size);
+				// alert(target);
+			});
+
+			$('input[name=kerapatan]').on('change', function(){
+				var dencity = $(this).data('dencity');
+				$('#kerapatan_cairan').val(dencity);
+			});
+
+			$('input[name=kerapatan2]').on('change', function(){
+				var dencity = $(this).data('dencity');
+				$('#kerapatan_cairan2').val(dencity);
+			});
+
+			// $.get('data.json', function(data){
+			// 	// $('#nama_benda').text(data.benda[0]);
+			// 	alert('asdfadsff');
+			// });
+
+			// $.ajax({
+	  //           type: "GET",
+	  //           url: "data.json",
+	  //           dataType: "json",
+	  //           success: function (data) {
+	  //               alert(data);
+	  //           },
+	  //           error: function (result) {
+	  //               alert("Error");
+	  //           }
+	  //       });
+		});
+	</script>
 	
 	<!-- <script src="js/Chart.bundle.min.js"></script> -->
 </body>

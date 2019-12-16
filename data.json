@@ -1,0 +1,14 @@
+{
+	"benda" : [
+		{
+			"name": "kelereng",
+			"dencity": 30,
+			"img": "img/kelereng.png"
+		},
+		{
+			"name": "golf",
+			"dencity": 30,
+			"img": "img/golf.png"
+		}
+	]
+}
