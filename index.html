@@ -10,7 +10,7 @@
 </head>
 <body>
 	<div class="container-fluid">
-		<h2 class="text-center mt-4 mb-4">Percobaan Viskositas</h2>
+		<h2 class="text-center mt-4 mb-4 text-muted">Perbandingan Viskositas</h2>
 
 		<div class="row">
 
@@ -29,29 +29,29 @@
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="row">
-									<a href="javascript:void(0);" data-dencity="40" class="card text-center pilih-benda benda">
+									<a href="javascript:void(0);" data-dencity="4000" class="card text-center pilih-benda benda">
 										<img src="img/kelereng.png" id="img_benda1" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2" id="nama_benda">Kelereng</p>
 									</a>
-									<a href="javascript:void(0);" data-dencity="30" class="card text-center pilih-benda benda" style="padding: 2px 2px 0;">
+									<a href="javascript:void(0);" data-dencity="3000" class="card text-center pilih-benda benda">
 										<img src="img/golf.png" id="img_benda2" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2" id="nama_benda2">Golf</p>
 									</a>
-									<a href="javascript:void(0);" data-dencity="50" class="card text-center pilih-benda benda">
-										<img src="img/kelereng.png" id="img_benda3" class="card-img-top" alt="">
-										<p class="card-text mb-2 mt-2" id="nama_benda3">Kelereng</p>
+									<a href="javascript:void(0);" data-dencity="4000" class="card text-center pilih-benda benda">
+										<img src="img/bola_besi.png" id="img_benda3" class="card-img-top" alt="">
+										<p class="card-text mb-2 mt-2" id="nama_benda3">Bola Besi</p>
 									</a>
 								</div>
 							</div>
 
 							<div class="col-sm-6 detail-benda">
 								<div class="form-group">
-									<label for="">Kerapatan Benda</label>
-									<input type="text" id="kerapatan_benda" class="form-control form-control-sm" placeholder="Input kerapatan benda">
+									<label for="">Kerapatan Benda (<span id="kerapatan_benda">2000</span> kg/m<sup>3</sup>)</label>
+									<input type="range" name="kerapatan_benda" data-kerapatan="#kerapatan_benda" class="custom-range range-kerapatan-benda" placeholder="Input kerapatan benda">
 								</div>
 								<div class="form-group">
-									<label for="">Diameter Benda</label>
-									<input type="range" data-target="#benda_jatuh" class="custom-range" placeholder="Input diameter benda">
+									<label for="">Diameter Benda (<span id="diameter_benda"></span> mm)</label>
+									<input type="range" name="diameter_benda" data-target="#benda_jatuh" data-diameter="#diameter_benda" class="custom-range range-diameter-benda" placeholder="Input diameter benda">
 								</div>
 							</div>
 
@@ -66,40 +66,53 @@
 								<div class="row">
 									<div class="nav flex-column">
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio1" name="kerapatan" data-dencity="50" class="custom-control-input">
+											<input type="radio" id="customRadio1" name="kerapatan" data-dencity="1200" data-warna="abu" class="custom-control-input">
 											<label class="custom-control-label" for="customRadio1">Air</label>
 										</div>
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio2" name="kerapatan" data-dencity="80" class="custom-control-input">
+											<input type="radio" id="customRadio2" name="kerapatan" data-dencity="1900" data-warna="hitam" class="custom-control-input">
 											<label class="custom-control-label" for="customRadio2">Oli</label>
 										</div>
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio3" name="kerapatan" data-dencity="30" class="custom-control-input">
+											<input type="radio" id="customRadio3" name="kerapatan" data-dencity="1800" data-warna="kuning" class="custom-control-input">
 											<label class="custom-control-label" for="customRadio3">Minyak Goreng</label>
 										</div>
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="customRadio4" name="kerapatan" data-dencity="90" class="custom-control-input">
+											<input type="radio" id="customRadio4" name="kerapatan" data-dencity="1500" data-warna="hijau" class="custom-control-input">
 											<label class="custom-control-label" for="customRadio4">Minyak Tanah</label>
 										</div>
-										 <div class="nav-link form-group">
-										  	<label for="">Kerapatan Cairan</label>
-										  	<input type="text" id="kerapatan_cairan" class="form-control form-control-sm" placeholder="Input kerapatan cairan" readonly>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="kerapatan_lainnya" name="kerapatan" data-dencity="other" data-warna="hitam" class="custom-control-input">
+											<label class="custom-control-label" for="kerapatan_lainnya">Lainnya</label>
 										</div>
 									</div>
 								</div>
+								<br>
 								<div class="row">
-									<div class="form-group">
-										<label for="">Viskositas</label>
-										<input type="text" class="form-control form-control-sm" placeholder="Input nilai viskositas">
+									<div class="col-md-10 form-group">
+										<label for="">Kerapatan Cairan (<span id="kerapatan_cairan">1000</span> kg/m<sup>3</sup>)</label>
+										<input type="range" name="kerapatan_cairan" data-kerapatan="#kerapatan_cairan" class="custom-range range-kerapatan-cairan" disabled>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-10 form-group">
+										<label for="">Viskositas (<span id="viskositas">5000</span> mPa s)</label>
+										<input type="range" name="viskositas" data-viskositas="#viskositas" data-warna="#warna_cairan" class="custom-range range-viskositas">
 									</div>
 								</div>
 							</div>
 
-							<div class="col-md-6 text-center">
-								<div style="position: absolute; width: 100%; margin-left: -17px; height: 140px; vertical-align: middle;">
-									<img src="img/kelereng.png" id="benda_jatuh" width="50" style="vertical-align: middle;" alt="">
+							<div class="col-md-6 text-center" style="position: relative;">
+								<div style="position: absolute; width: 100%; margin-left: -17px; height: 350px;">
+									<div style="position: absolute; width: 100%; height: 350px;">
+										<img src="img/kelereng.png" id="benda_jatuh" style="top: 35px; position: relative;" width="50">
+									</div>
+									<div style="position: absolute; width: 100%; height: 350px;">
+										<img src="img/tabung_hitam.png" id="warna_cairan" width="200" height="300" style="opacity: 0.05;">
+									</div>
+									
 								</div>
-								<img src="img/tabung.png" width="200" height="350" alt="">
+								<img src="img/tabung_kosong.png" width="200" height="300">
 							</div>
 						</div>
 
@@ -121,34 +134,33 @@
 						<div class="row">
 							<div class="col-sm-5">
 								<div class="row">
-									<a href="javascript:void(0);" data-dencity="40" class="card text-center pilih-benda benda2">
+									<a href="javascript:void(0);" data-dencity="4000" class="card text-center pilih-benda benda2">
 										<img src="img/kelereng.png" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2">Kelereng</p>
 									</a>
-									<a href="javascript:void(0);" data-dencity="60" class="card text-center pilih-benda benda2" style="padding: 2px 2px 0;">
+									<a href="javascript:void(0);" data-dencity="6000" class="card text-center pilih-benda benda2">
 										<img src="img/golf.png" class="card-img-top" alt="">
 										<p class="card-text mb-2 mt-2">Golf</p>
 									</a>
-									<a href="javascript:void(0);" data-dencity="50" class="card text-center pilih-benda benda2">
-										<img src="img/kelereng.png" class="card-img-top" alt="">
-										<p class="card-text mb-2 mt-2">Kelereng</p>
+									<a href="javascript:void(0);" data-dencity="5000" class="card text-center pilih-benda benda2">
+										<img src="img/bola_besi.png" class="card-img-top" alt="">
+										<p class="card-text mb-2 mt-2">Bola Besi</p>
 									</a>
 								</div>
 							</div>
 
 							<div class="col-sm-6 detail-benda">
 								<div class="form-group">
-									<label for="">Kerapatan Benda</label>
-									<input type="text" id="kerapatan_benda2" class="form-control form-control-sm" placeholder="Input kerapatan benda">
+									<label for="">Kerapatan Benda (<span id="kerapatan_benda2">2000</span> kg/m<sup>3</sup>)</label>
+									<input type="range" name="kerapatan_benda2" data-kerapatan="#kerapatan_benda2" class="custom-range range-kerapatan-benda">
 								</div>
 								<div class="form-group">
-									<label for="">Diameter Benda</label>
-									<input type="range" data-target="#benda_jatuh2" class="custom-range" placeholder="Input diameter benda">
+									<label for="">Diameter Benda (<span id="diameter_benda2"></span> mm)</label>
+									<input type="range" name="diameter_benda2" data-target="#benda_jatuh2" data-diameter="#diameter_benda2" class="custom-range range-diameter-benda">
 								</div>
 							</div>
 
 						</div>
-
 						
 						<div class="row">
 							<div class="col-md-6">
@@ -159,49 +171,69 @@
 								<div class="row">
 									<div class="nav flex-column">
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="custom2Radio1" name="kerapatan2" data-dencity="50" class="custom-control-input">
+											<input type="radio" id="custom2Radio1" name="kerapatan2" data-dencity="1500" data-warna="abu" class="custom-control-input">
 											<label class="custom-control-label" for="custom2Radio1">Air</label>
 										</div>
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="custom2Radio2" name="kerapatan2" data-dencity="80" class="custom-control-input">
+											<input type="radio" id="custom2Radio2" name="kerapatan2" data-dencity="1800" data-warna="hitam" class="custom-control-input">
 											<label class="custom-control-label" for="custom2Radio2">Oli</label>
 										</div>
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="custom2Radio3" name="kerapatan2" data-dencity="30" class="custom-control-input">
+											<input type="radio" id="custom2Radio3" name="kerapatan2" data-dencity="1300" data-warna="kuning" class="custom-control-input">
 											<label class="custom-control-label" for="custom2Radio3">Minyak Goreng</label>
 										</div>
 									  	<div class="custom-control custom-radio">
-											<input type="radio" id="custom2Radio4" name="kerapatan2" data-dencity="90" class="custom-control-input">
+											<input type="radio" id="custom2Radio4" name="kerapatan2" data-dencity="1900" data-warna="hijau" class="custom-control-input">
 											<label class="custom-control-label" for="custom2Radio4">Minyak Tanah</label>
 										</div>
-										 <div class="nav-link form-group">
-										  	<label for="">Kerapatan Cairan</label>
-										  	<input type="text" id="kerapatan_cairan2" class="form-control form-control-sm" placeholder="Input kerapatan cairan" readonly>
+									  	<div class="custom-control custom-radio">
+											<input type="radio" id="kerapatan_lainnya2" name="kerapatan2" data-dencity="other" data-warna="hitam" class="custom-control-input">
+											<label class="custom-control-label" for="kerapatan_lainnya2">Lainnya</label>
 										</div>
 									</div>
 								</div>
+								<br>
 								<div class="row">
-									<div class="form-group">
-										<label for="">Viskositas</label>
-										<input type="text" class="form-control form-control-sm" placeholder="Input nilai viskositas">
+									<div class="col-md-10 form-group">
+										<label for="">Kerapatan Cairan (<span id="kerapatan_cairan2">1000</span> kg/m<sup>3</sup>)</label>
+										<input type="range" name="kerapatan_cairan2" data-kerapatan="#kerapatan_cairan2" class="custom-range range-kerapatan-cairan" disabled>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-10 form-group">
+										<label for="">Viskositas (<span id="viskositas2">5000</span> mPa s)</label>
+										<input type="range" name="viskositas2" data-viskositas="#viskositas2" data-warna="#warna_cairan2" class="custom-range range-viskositas">
 									</div>
 								</div>
 							</div>
 
-							<div class="col-md-6">
-								<div class="col-sm-7 text-right">
-									<img src="img/tabung.png" width="200" height="350" alt="" style="position: relative;">
-									<div style="position: absolute; top: 30px; left: 60%;">
-										<img src="img/kelereng.png" id="benda_jatuh2" width="50" alt="">
+							<div class="col-md-6 text-center" style="position: relative;">
+								<div style="position: absolute; width: 100%; margin-left: -17px; height: 350px;">
+									<div style="position: absolute; width: 100%; height: 350px;">
+										<img src="img/kelereng.png" id="benda_jatuh2" style="top: 35px; position: relative;" width="50">
 									</div>
+									<div style="position: absolute; width: 100%; height: 350px;">
+										<img src="img/tabung_hitam.png" id="warna_cairan2" width="200" height="300" style="opacity: 0.05;">
+									</div>
+									
 								</div>
+								<img src="img/tabung_kosong.png" width="200" height="300">
 							</div>
+
 						</div>
 
 					</div>
 				</div>
 			</div>
 
+		</div>
+
+		<br>
+		<div class="row">
+			<div class="col-md-12 text-center">
+				<a href="" id="btn_reset" class="col-md-2 btn btn-danger">RESET</a>
+				<button id="btn_proses" class="col-md-2 btn btn-primary">PROSES</button>
+			</div>
 		</div>
 
 		<div class="card mt-4">
@@ -210,27 +242,46 @@
 			<div class="card-body hasil">
 				<div class="row">
 					<div class="col-6">
-						<canvas id="myChart" width="400" height="200"></canvas>
-						<!-- <canvas id="canvas"></canvas> -->
-					</div>
-
-					<div class="col-6">
 						<div class="form-group">
 							<label for="">Kecepatan Benda 1</label>
-							<input type="text" class="form-control form-control-sm" placeholder="Kecepatan Benda 1" readonly>
+							<div class="input-group input-group-sm">
+								<input type="text" id="kecepatan_benda1" class="form-control" placeholder="Kecepatan Benda 1" readonly>
+								<div class="input-group-append">
+								    <span class="input-group-text">km/s</span>
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="">Massa Benda 1</label>
-							<input type="text" class="form-control form-control-sm" placeholder="Massa Benda 1" readonly>
+							<div class="input-group input-group-sm">
+								<input type="text" id="massa_benda1" class="form-control form-control-sm" placeholder="Massa Benda 1" readonly>
+								<div class="input-group-append">
+								    <span class="input-group-text">kg</span>
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="">Kecepatan Benda 2</label>
-							<input type="text" class="form-control form-control-sm" placeholder="Kecepatan Benda 2" readonly>
+							<div class="input-group input-group-sm">
+								<input type="text" id="kecepatan_benda2" class="form-control form-control-sm" placeholder="Kecepatan Benda 2" readonly>
+								<div class="input-group-append">
+								    <span class="input-group-text">km/s</span>
+								</div>
+							</div>
 						</div>
 						<div class="form-group">
 							<label for="">Massa Benda 2</label>
-							<input type="text" class="form-control form-control-sm" placeholder="Massa Benda 2" readonly>
+							<div class="input-group input-group-sm">
+								<input type="text" id="massa_benda2" class="form-control form-control-sm" placeholder="Massa Benda 2" readonly>
+								<div class="input-group-append">
+								    <span class="input-group-text">kg</span>
+								</div>
+							</div>
 						</div>
+					</div>
+
+					<div class="col-6">
+						<canvas id="speedChart" width="400" height="200"></canvas>
 					</div>
 				</div>
 			</div>
@@ -239,180 +290,58 @@
 	</div>
 	
 	<script src="js/Chart.min.js"></script>
-	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/jquery-3.4.1.js"></script>
 	<script>
-		var ctx = document.getElementById('myChart').getContext('2d');
-		var myChart = new Chart(ctx, {
-		    type: 'line',
-		    data: {
-		        labels: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-		        datasets: [{
-		            label: '',
-		            data: [0, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10],
-		            backgroundColor: [
-		                'rgba(255, 99, 132, 0.2)',
-		                'rgba(54, 162, 235, 0.2)',
-		                'rgba(255, 206, 86, 0.2)',
-		                'rgba(75, 192, 192, 0.2)',
-		                'rgba(153, 102, 255, 0.2)',
-		                'rgba(255, 159, 64, 0.2)'
-		            ],
-		            borderColor: [
-		                'rgba(255, 99, 132, 1)',
-		                'rgba(54, 162, 235, 1)',
-		                'rgba(255, 206, 86, 1)',
-		                'rgba(75, 192, 192, 1)',
-		                'rgba(153, 102, 255, 1)',
-		                'rgba(255, 159, 64, 1)'
-		            ],
-		            borderWidth: 1
-		        }]
-		    },
-		    options: {
-		        scales: {
-		            yAxes: [{
-		                ticks: {
-		                    beginAtZero: true
-		                }
-		            }]
-		        }
-		    }
-		});
+		function reloadChart(velocity1=[1,2,3], velocity2=[1,2,3], time=[1,2,3]) {
+			var speedCanvas = document.getElementById("speedChart");
 
-		// var lineChartData = {
-		// 	labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-		// 	datasets: [{
-		// 		label: 'My First dataset',
-		// 		borderColor: window.chartColors.red,
-		// 		backgroundColor: window.chartColors.red,
-		// 		fill: false,
-		// 		data: [
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor()
-		// 		],
-		// 		yAxisID: 'y-axis-1',
-		// 	}, {
-		// 		label: 'My Second dataset',
-		// 		borderColor: window.chartColors.blue,
-		// 		backgroundColor: window.chartColors.blue,
-		// 		fill: false,
-		// 		data: [
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor(),
-		// 			randomScalingFactor()
-		// 		],
-		// 		yAxisID: 'y-axis-2'
-		// 	}]
-		// };
+			Chart.defaults.global.defaultFontFamily = "Lato";
+			Chart.defaults.global.defaultFontSize = 18;
 
-		// window.onload = function() {
-		// 	var ctx = document.getElementById('canvas').getContext('2d');
-		// 	window.myLine = Chart.Line(ctx, {
-		// 		data: lineChartData,
-		// 		options: {
-		// 			responsive: true,
-		// 			hoverMode: 'index',
-		// 			stacked: false,
-		// 			title: {
-		// 				display: true,
-		// 				text: 'Chart.js Line Chart - Multi Axis'
-		// 			},
-		// 			scales: {
-		// 				yAxes: [{
-		// 					type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-		// 					display: true,
-		// 					position: 'left',
-		// 					id: 'y-axis-1',
-		// 				}, {
-		// 					type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-		// 					display: true,
-		// 					position: 'right',
-		// 					id: 'y-axis-2',
+			var dataFirst = {
+			    label: "Percobaan 1",
+			    data: velocity1,
+			    lineTension: 0.3,
+			    fill: true,
+			    borderColor: 'red'
+			  };
 
-		// 					// grid line settings
-		// 					gridLines: {
-		// 						drawOnChartArea: false, // only want the grid lines for one axis to show up
-		// 					},
-		// 				}],
-		// 			}
-		// 		}
-		// 	});
-		// };
+			var dataSecond = {
+			    label: "Percobaan 2",
+			    data: velocity2,
+			    lineTension: 0.3,
+			    fill: true,
+			  	borderColor: 'blue'
+			  };
+
+			var speedData = {
+			  labels: time,
+			  datasets: [dataFirst, dataSecond]
+			};
+
+			var chartOptions = {
+			  legend: {
+			    display: true,
+			    position: 'top',
+			    labels: {
+			      boxWidth: 30,
+			      fontColor: 'black'
+			    }
+			  }
+			};
+
+			var lineChart = new Chart(speedCanvas, {
+			  type: 'line',
+			  data: speedData,
+			  options: chartOptions
+			});
+		}
 	</script>
 	<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+	<!-- <script src="https://code.jquery.com/jquery-3.4.1.js"></script> -->
 	<script src="js/bootstrap.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			var img_size = 40;
-			$('input[type=range]').attr('min', 30);
-			$('input[type=range]').attr('max', 80);
-			$('input[type=range]').val(img_size);
-			$('#img_benda').attr('size', img_size);
-
-			$('.benda').click(function() {
-				var img_src = $(this).children('img').attr('src');
-				var dencity = $(this).data('dencity');
-				$('.benda').removeClass('border-primary');
-				$(this).addClass('border-primary');
-				$('#benda_jatuh').attr('src', img_src);
-				$('#kerapatan_benda').val(dencity);
-			});
-
-			$('.benda2').click(function() {
-				var img_src = $(this).children('img').attr('src');
-				var dencity = $(this).data('dencity');
-				$('.benda2').removeClass('border-primary');
-				$(this).addClass('border-primary');
-				$('#benda_jatuh2').attr('src', img_src);
-				$('#kerapatan_benda2').val(dencity);
-			});
-
-			$('input[type=range]').on('input', function() {
-				var img_target = $(this).data('target');
-				var size = $(this).val();
-				$(img_target).attr('width', size);
-				$(this).attr('title', size);
-				// $('#kerapatan_benda').val(size);
-				// alert(target);
-			});
-
-			$('input[name=kerapatan]').on('change', function(){
-				var dencity = $(this).data('dencity');
-				$('#kerapatan_cairan').val(dencity);
-			});
-
-			$('input[name=kerapatan2]').on('change', function(){
-				var dencity = $(this).data('dencity');
-				$('#kerapatan_cairan2').val(dencity);
-			});
-
-			// $.get('data.json', function(data){
-			// 	// $('#nama_benda').text(data.benda[0]);
-			// 	alert('asdfadsff');
-			// });
-
-			// $.ajax({
-	  //           type: "GET",
-	  //           url: "data.json",
-	  //           dataType: "json",
-	  //           success: function (data) {
-	  //               alert(data);
-	  //           },
-	  //           error: function (result) {
-	  //               alert("Error");
-	  //           }
-	  //       });
-		});
-	</script>
+	<script src="js/viskositas.js"></script>
+	<script src="js/custom.js"></script>
 	
 	<!-- <script src="js/Chart.bundle.min.js"></script> -->
 </body>
